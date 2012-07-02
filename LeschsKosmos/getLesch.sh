@@ -6,6 +6,10 @@ rm tmpStreams.txt
 
 ./getVideoList.sh
 
+if [[ ! -d ./video ]] ; then
+	echo "Videoverzeichnis nicht vorhanden, erstelle es..."
+	mkdir video
+fi;
 
 for I in `cat videos.txt` ; do
 	FILENAME=`basename "$I" | cut -d ? -f1`
