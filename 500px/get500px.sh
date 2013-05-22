@@ -1,7 +1,12 @@
 #/bin/bash
 #Masterscript für 500px.com
-mkdir photo
-mkdir pages
+if [ ! -d photo ]; then
+  mkdir photo
+fi
+
+if [ ! -d pages ]; then
+  mkdir pages
+fi
 
 ./getPopularList.sh
 ./genPhotoLinks.sh
