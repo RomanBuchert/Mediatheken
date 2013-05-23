@@ -9,5 +9,6 @@ if [ ! -d pages ]; then
 fi
 
 ./getPopularList.sh
+./getEditorsList.sh
 ./genPhotoLinks.sh
 ./getPhotos.sh
