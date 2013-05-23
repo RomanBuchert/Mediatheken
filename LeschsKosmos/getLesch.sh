@@ -1,4 +1,5 @@
 #!/bin/bash
+pwd
 
 echo $$ >getLesch.pid
 rm video.txt
@@ -18,6 +19,10 @@ for I in `cat videos.txt` ; do
 	echo -e -n "$FILENAME ist gespeichert unter $STREAMFILE \n"
 	echo -e -n "URL des Streams: $STREAM \n"
 	if [[ ! -s video/$FILENAME.wmv ]] ; then
-		mplayer -dumpstream -dumpfile video/$FILENAME.wmv $STREAM
+		rm video/$FILENAME.wmv.tmp
+		mplayer -dumpstream -dumpfile video/$FILENAME.wmv.tmp $STREAM
+		if [ $? == 0 ] ; then
+			mv video/$FILENAME.wmv.tmp video/$FILENAME.wmv
+		fi;
 	fi;
 done
