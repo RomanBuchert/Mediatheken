@@ -1,6 +1,5 @@
 #!/bin/bash
 pwd
-
 echo $$ >getLesch.pid
 rm video.txt
 rm tmpStreams.txt
